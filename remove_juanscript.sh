@@ -101,7 +101,7 @@ apt autoremove -y
 
 echo "[Hostname Fix] Restoring default hostname..."
 
-DEFAULT_HOST="server"
+DEFAULT_HOST="VPS KALDAG"
 
 hostnamectl set-hostname $DEFAULT_HOST
 
