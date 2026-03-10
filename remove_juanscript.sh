@@ -99,6 +99,18 @@ echo "[10/10] Cleaning packages..."
 apt purge -y openvpn nginx squid stunnel4 2>/dev/null
 apt autoremove -y
 
+echo "[Hostname Fix] Restoring default hostname..."
+
+DEFAULT_HOST="server"
+
+hostnamectl set-hostname $DEFAULT_HOST
+
+if grep -q "JuanScript-JCM" /etc/hosts; then
+    sed -i "s/JuanScript-JCM/$DEFAULT_HOST/g" /etc/hosts
+fi
+
+echo "Hostname restored to $DEFAULT_HOST"
+
 echo ""
 echo "--------------------------------------"
 echo " JuanScript completely removed"
